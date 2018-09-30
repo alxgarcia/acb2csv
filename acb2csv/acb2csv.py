@@ -4,8 +4,8 @@ import csv
 import urllib.request
 
 
-def generate_players_csv():
-    content = urllib.request.urlopen('http://www.acb.com/fichas/LACB63003.php').read()
+def generate_players_csv(url: str):
+    content = urllib.request.urlopen(url).read()
     soup = BeautifulSoup(content, 'html.parser')
     rows = soup.find_all('table', class_='estadisticasnew')[1].find_all('tr')
     team = ''
@@ -68,6 +68,7 @@ def get_player_from_tag(tag: Tag) -> {}:
         'threept': get_stat(columns[6].string, 1),
         'tlc': get_stat(columns[8].string),
         'tlt': get_stat(columns[8].string, 1),
+        'reb': columns[10].string.strip(),
         'def': get_stat(columns[11].string, 0, '+'),
         'of': get_stat(columns[11].string, 1, '+'),
         'per': columns[14].string.strip(),
@@ -85,7 +86,7 @@ def get_player_from_str(data: str):
 
 
 class PerformanceCSV(object):
-    properties = ['#', 'jugador', 'pts', 'ast', 'rec', 'tap', 'twopc', 'twopt', 'twoppercent',
+    properties = ['jugador', 'pts', 'reb', 'ast', 'rec', 'tap', 'twopc', 'twopt', 'twoppercent',
                   'threepc', 'threept', 'threeppercent', 'tlc', 'tlt', 'tlpercent', 'of', 'def', 'per', 'fp']
 
     @staticmethod

@@ -1,20 +1,9 @@
 from unittest import TestCase
-from acb2csv import generate_players_csv, get_player_from_str, PerformanceCSV
-
-
-class Test(TestCase):
-    def setUp(self):
-        with open("./data/input1.html") as content:
-            self.content = content.read()
-
-    def test_lol(self):
-        result = generate_players_csv()
-        # print(result)
-        self.assertEqual('FOO', 'FOO')
+from acb2csv import parse_player
 
 
 class Parsing(TestCase):
-    def test_player_with_data(self):
+    def test_parsing_player(self):
         data = """<tr>
                 <td class="gris" width="15">3</td>
                 <td class="naranjaclaro" width="103"><a href="/jugador.php?id=FOO">Pangos, Kevin</a></td>
@@ -38,7 +27,7 @@ class Parsing(TestCase):
                 <td class="blanco" width="20">1</td>
                 <td class="grisclaro" width="20">3</td>
             </tr>""".replace("\n", "")
-        player = get_player_from_str(data)
+        player = parse_player(data)
         self.assertEqual('3', player['#'])
         self.assertEqual('Kevin Pangos', player['jugador'])
         self.assertEqual('10', player['pts'])
@@ -55,5 +44,3 @@ class Parsing(TestCase):
         self.assertEqual('0', player['def'])
         self.assertEqual('1', player['per'])
         self.assertEqual('3', player['fp'])
-
-        PerformanceCSV.write('fcb', [player])
