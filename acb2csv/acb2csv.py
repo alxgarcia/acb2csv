@@ -57,6 +57,7 @@ def get_player_from_tag(tag: Tag) -> {}:
     columns = tag.find_all('td')
     data = {
         '#': columns[0].string.strip(),
+        'minutos': get_stat(columns[2].string, 0, ':'),
         'jugador': ' '.join(columns[1].find('a').string.split(', ')[::-1]),
         'pts': columns[3].string.strip(),
         'ast': columns[12].string.strip(),
@@ -86,7 +87,7 @@ def get_player_from_str(data: str):
 
 
 class PerformanceCSV(object):
-    properties = ['jugador', 'pts', 'reb', 'ast', 'rec', 'tap', 'twopc', 'twopt', 'twoppercent',
+    properties = ['jugador', 'minutos', 'pts', 'reb', 'ast', 'rec', 'tap', 'twopc', 'twopt', 'twoppercent',
                   'threepc', 'threept', 'threeppercent', 'tlc', 'tlt', 'tlpercent', 'of', 'def', 'per', 'fp']
 
     @staticmethod

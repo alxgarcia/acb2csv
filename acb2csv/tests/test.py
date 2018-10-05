@@ -29,6 +29,7 @@ class Parsing(TestCase):
             </tr>""".replace("\n", "")
         player = parse_player(data)
         self.assertEqual('3', player['#'])
+        self.assertEqual('23', player['minutos'])
         self.assertEqual('Kevin Pangos', player['jugador'])
         self.assertEqual('10', player['pts'])
         self.assertEqual('8', player['ast'])

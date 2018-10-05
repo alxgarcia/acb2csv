@@ -7,9 +7,9 @@ def readme():
 
 
 setup(name='acb2csv',
-      version='0.1',
+      version='0.2',
       description='Team/Players performance importer/exporter',
-      url='http://github.com/alxgarcia/todo',
+      url='https://github.com/alxgarcia/acb2csv',
       author='alxgarcia',
       author_email='alxgarcia@github.com',
       license='MIT',
