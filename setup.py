@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='acb2csv',
-      version='0.2',
+      version='0.3',
       description='Team/Players performance importer/exporter',
       url='https://github.com/alxgarcia/acb2csv',
       author='alxgarcia',

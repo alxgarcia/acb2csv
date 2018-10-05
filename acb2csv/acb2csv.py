@@ -73,7 +73,8 @@ def get_player_from_tag(tag: Tag) -> {}:
         'def': get_stat(columns[11].string, 0, '+'),
         'of': get_stat(columns[11].string, 1, '+'),
         'per': columns[14].string.strip(),
-        'fp': columns[20].string.strip(),
+        'fpr': columns[19].string.strip(),
+        'fpc': columns[20].string.strip(),
     }
 
     data['twoppercent'] = get_percent(data, 'twopc', 'twopt')
@@ -88,7 +89,7 @@ def get_player_from_str(data: str):
 
 class PerformanceCSV(object):
     properties = ['jugador', 'minutos', 'pts', 'reb', 'ast', 'rec', 'tap', 'twopc', 'twopt', 'twoppercent',
-                  'threepc', 'threept', 'threeppercent', 'tlc', 'tlt', 'tlpercent', 'of', 'def', 'per', 'fp']
+                  'threepc', 'threept', 'threeppercent', 'tlc', 'tlt', 'tlpercent', 'of', 'def', 'per', 'fpr', 'fpc']
 
     @staticmethod
     def write(team: str, players: []):

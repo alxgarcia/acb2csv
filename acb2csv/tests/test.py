@@ -44,4 +44,5 @@ class Parsing(TestCase):
         self.assertEqual('1', player['of'])
         self.assertEqual('0', player['def'])
         self.assertEqual('1', player['per'])
-        self.assertEqual('3', player['fp'])
+        self.assertEqual('1', player['fpr'])
+        self.assertEqual('3', player['fpc'])
